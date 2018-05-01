@@ -69,6 +69,7 @@ extension MessagesViewController {
 
             messageCollectionViewBottomInset = afterBottomInset
         }
+        self.inputBarBottomConstraint?.constant = -messageCollectionViewBottomInset
     }
 
     @objc

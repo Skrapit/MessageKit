@@ -70,6 +70,8 @@ open class MessagesViewController: UIViewController {
             messagesCollectionView.scrollIndicatorInsets.bottom = messageCollectionViewBottomInset
         }
     }
+  
+  var inputBarBottomConstraint:NSLayoutConstraint?
 
     // MARK: - View Life Cycle
 
@@ -158,6 +160,7 @@ open class MessagesViewController: UIViewController {
             let inputTrailing = messageInputBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             NSLayoutConstraint.activate([top, separator, bottom, trailing, leading, inputLeading, inputTrailing])
         }
+      self.inputBarBottomConstraint = bottom
     }
     
     private func addObservers() {
