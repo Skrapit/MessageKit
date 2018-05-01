@@ -140,6 +140,7 @@ open class MessagesViewController: UIViewController {
     /// Sets the constraints of the `MessagesCollectionView`.
     private func setupConstraints() {
         messagesCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        messageInputBar.translatesAutoresizingMaskIntoConstraints = false
         
         let top = messagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: topLayoutGuide.length)
         let separator = messagesCollectionView.bottomAnchor.constraint(equalTo: messageInputBar.topAnchor)
