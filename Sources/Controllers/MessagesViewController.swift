@@ -50,9 +50,9 @@ open class MessagesViewController: UIViewController {
         return true
     }
 
-    open override var inputAccessoryView: UIView? {
-        return messageInputBar
-    }
+//    open override var inputAccessoryView: UIView? {
+//        return messageInputBar
+//    }
 
     open override var shouldAutorotate: Bool {
         return false
@@ -123,6 +123,7 @@ open class MessagesViewController: UIViewController {
     /// Adds the messagesCollectionView to the controllers root view.
     private func setupSubviews() {
         view.addSubview(messagesCollectionView)
+        view.addSubview(messageInputBar)
     }
 
     /// Registers all cells and supplementary views of the messagesCollectionView property.
@@ -141,15 +142,16 @@ open class MessagesViewController: UIViewController {
         messagesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         let top = messagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: topLayoutGuide.length)
-        let bottom = messagesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        let separator = messagesCollectionView.bottomAnchor.constraint(equalTo: messageInputBar.topAnchor, constant: 0)
+        let bottom = messageInputBar.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         if #available(iOS 11.0, *) {
             let leading = messagesCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
             let trailing = messagesCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-            NSLayoutConstraint.activate([top, bottom, trailing, leading])
+            NSLayoutConstraint.activate([top, separator, bottom, trailing, leading])
         } else {
             let leading = messagesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
             let trailing = messagesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            NSLayoutConstraint.activate([top, bottom, trailing, leading])
+            NSLayoutConstraint.activate([top, separator, bottom, trailing, leading])
         }
     }
     
