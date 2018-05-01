@@ -71,8 +71,6 @@ open class MessagesViewController: UIViewController {
         }
     }
   
-  var inputBarBottomConstraint:NSLayoutConstraint?
-
     // MARK: - View Life Cycle
 
     open override func viewDidLoad() {
@@ -160,7 +158,6 @@ open class MessagesViewController: UIViewController {
             let inputTrailing = messageInputBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             NSLayoutConstraint.activate([top, separator, bottom, trailing, leading, inputLeading, inputTrailing])
         }
-      self.inputBarBottomConstraint = bottom
     }
     
     private func addObservers() {
