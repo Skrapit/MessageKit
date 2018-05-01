@@ -69,7 +69,7 @@ extension MessagesViewController {
 
             messageCollectionViewBottomInset = afterBottomInset
         }
-        self.inputBarBottomConstraint?.constant = -messageCollectionViewBottomInset
+        self.inputBarBottomConstraint?.constant = -keyboardEndFrame.size.height
     }
 
     @objc
