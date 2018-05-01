@@ -142,16 +142,20 @@ open class MessagesViewController: UIViewController {
         messagesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         let top = messagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: topLayoutGuide.length)
-        let separator = messagesCollectionView.bottomAnchor.constraint(equalTo: messageInputBar.topAnchor, constant: 0)
+        let separator = messagesCollectionView.bottomAnchor.constraint(equalTo: messageInputBar.topAnchor)
         let bottom = messageInputBar.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         if #available(iOS 11.0, *) {
             let leading = messagesCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
             let trailing = messagesCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-            NSLayoutConstraint.activate([top, separator, bottom, trailing, leading])
+            let inputLeading = messageInputBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
+            let inputTrailing = messageInputBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            NSLayoutConstraint.activate([top, separator, bottom, trailing, leading, inputLeading, inputTrailing])
         } else {
             let leading = messagesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
             let trailing = messagesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            NSLayoutConstraint.activate([top, separator, bottom, trailing, leading])
+            let inputLeading = messageInputBar.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+            let inputTrailing = messageInputBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            NSLayoutConstraint.activate([top, separator, bottom, trailing, leading, inputLeading, inputTrailing])
         }
     }
     
