@@ -86,11 +86,11 @@ open class MessagesViewController: UIViewController {
     
     open override func viewDidLayoutSubviews() {
         // Hack to prevent animation of the contentInset after viewDidAppear
-        if isFirstLayout {
-            defer { isFirstLayout = false }
-            addKeyboardObservers()
-            messageCollectionViewBottomInset = keyboardOffsetFrame.height
-        }
+//        if isFirstLayout {
+//            defer { isFirstLayout = false }
+//            addKeyboardObservers()
+//            messageCollectionViewBottomInset = keyboardOffsetFrame.height
+//        }
         adjustScrollViewInset()
     }
 
