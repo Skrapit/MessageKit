@@ -45,6 +45,7 @@ open class MessagesViewController: UIViewController {
     ///
     /// The default value of this property is `false`.
     open var maintainPositionOnKeyboardFrameChanged: Bool = false
+    open var inputViewBottomConstraint:NSLayoutConstraint?
 
     open override var canBecomeFirstResponder: Bool {
         return true
@@ -71,7 +72,6 @@ open class MessagesViewController: UIViewController {
         }
     }
   
-   var inputViewBottomConstraint:NSLayoutConstraint?
   
     // MARK: - View Life Cycle
 
