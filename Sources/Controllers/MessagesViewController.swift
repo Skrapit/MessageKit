@@ -71,6 +71,8 @@ open class MessagesViewController: UIViewController {
         }
     }
   
+   var inputViewBottomConstraint:NSLayoutConstraint?
+  
     // MARK: - View Life Cycle
 
     open override func viewDidLoad() {
@@ -144,7 +146,7 @@ open class MessagesViewController: UIViewController {
         
         let top = messagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: topLayoutGuide.length)
         let separator = messagesCollectionView.bottomAnchor.constraint(equalTo: messageInputBar.topAnchor)
-        let bottom = messageInputBar.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        let bottom = messageInputBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomLayoutGuide.length))
         if #available(iOS 11.0, *) {
             let leading = messagesCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
             let trailing = messagesCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
@@ -158,6 +160,8 @@ open class MessagesViewController: UIViewController {
             let inputTrailing = messageInputBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             NSLayoutConstraint.activate([top, separator, bottom, trailing, leading, inputLeading, inputTrailing])
         }
+      
+      self.inputViewBottomConstraint = bottom
     }
     
     private func addObservers() {
