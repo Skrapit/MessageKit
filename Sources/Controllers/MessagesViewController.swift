@@ -146,7 +146,7 @@ open class MessagesViewController: UIViewController {
         
         let top = messagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: topLayoutGuide.length)
         let separator = messagesCollectionView.bottomAnchor.constraint(equalTo: messageInputBar.topAnchor)
-        let bottom = messageInputBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomLayoutGuide.length))
+        let bottom = messageInputBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomLayoutGuide.length)
         if #available(iOS 11.0, *) {
             let leading = messagesCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
             let trailing = messagesCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
